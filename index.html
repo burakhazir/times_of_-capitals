@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAAT KAÇ?</title>
+    <style>
+        @keyframes flyStars {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            padding-bottom: 0px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0px;
+            height: 200px;
+            width: 100%;
+            background-size: 1080 499px;
+        }
+ 
+        .cityColumn {
+            flex: 1;
+            text-align: center;
+            background-size: 100%;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cityImage {
+            width: auto; /* BURA DEĞİŞTİRMİYOR*/
+            height: auto; 
+            display: block;
+            margin: 0 auto;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .cityName {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+            background-size: 821 547px;
+            text-align: left;
+        }
+
+        .cityClock {
+            font-size: 35px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: left;
+            color: white;
+        }
+
+        .otherCities {
+            padding-top: 0px;
+            margin-top: 0px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .otherCities .cityName {
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+            color: rgb(216, 144, 202);
+            padding-top: 50px;
+        }
+
+        .otherCityClock {
+            padding-top: 50px;
+            height: 150px;
+            font-size: 100px;
+            font-weight: bold;
+            margin-top: 0px;
+            text-align: center;
+            color: white;
+
+        }
+        .selclock {
+            margin-top: 0px;
+            padding-top: 0px;
+            background-color: black;
+        }
+        .stars {
+            position: absolute;
+             top: 0; /* Yıldızların başlangıç konumu */
+            left: 50%; /* Yıldızların başlangıç konumu */
+            width: 3px;
+            height: 3px;
+            background: rgb(253, 252, 252);
+            box-shadow: 
+            1000px 1000px white,
+            400px 300px white,
+            800px 1200px white,
+            500px 800px white;
+            animation: flyStars 10s linear infinite;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="cityColumn" style="background-image: url('https://thumbs.dreamstime.com/b/london-big-ben-houses-parliament-uk-49652572.jpg');">
+            <div class="cityName" id="london">Londra</div>
+            <div id="londonClock" class="cityClock"></div>
+        </div>
+        <div class="cityColumn" style="background-image: url('https://thumbs.dreamstime.com/b/istanbul-capital-turkey-eastern-tourist-city-55970940.jpg');">
+            <div class="cityName" id="istanbul">İstanbul</div>
+            <div id="istanbulClock" class="cityClock"></div>
+        </div>
+        <div class="cityColumn" style="background-image: url('https://images.pexels.com/photos/9907229/pexels-photo-9907229.jpeg');">
+            <div class="cityName" id="rome">Roma</div>
+            <div id="romeClock" class="cityClock"></div>
+        </div>
+    </div>
+    
+    <div class="selclock" id="otherCityClock">
+        <div id="selectedCityClock" class="otherCityClock" style="display:none;"></div> 
+    </div>
+
+    <div class="otherCities" id="otherCityNames">
+        <div class="stars"></div>
+        <div id="otherCityClocks"></div>
+    </div>
+    <script>
+        let selectedCity = null;
+
+        function fetchAndUpdateClocks() {
+            fetch('/cityClocks')
+                .then(response => response.json())
+                .then(data => {
+                    const londonClock = document.getElementById('londonClock');
+                    const istanbulClock = document.getElementById('istanbulClock');
+                    const romeClock = document.getElementById('romeClock');
+                    const londonData = data.find(city => city.CityName === 'Londra');
+                    const istanbulData = data.find(city => city.CityName === 'İstanbul');
+                    const romeData = data.find(city => city.CityName === 'Roma');
+                    londonClock.textContent = formatTime(londonData.CurrentTime);
+                    istanbulClock.textContent = formatTime(istanbulData.CurrentTime);
+                    romeClock.textContent = formatTime(romeData.CurrentTime);
+
+                    const otherCityNames = document.getElementById('otherCityNames');
+                    otherCityNames.innerHTML = ''; // Önceki diğer şehir isimlerini temizle
+                    const fonts = ['Georgia, serif', 'Arial, sans-serif', 'Times New Roman, serif', 'Sans-serif'];
+                    const fontSizes = ['50px', '85px', '20px', '35px', '20px']; // Her satırdaki font boyutları
+                    let fontIndex = 0; // Font dizinini takip etmek için bir değişken
+
+                    data.filter(city => city.CityName !== 'Londra' && city.CityName !== 'İstanbul' && city.CityName !== 'Roma').forEach((city, index) => {
+                        const cityNameDiv = document.createElement('div');
+                        cityNameDiv.className = 'cityName';
+                        cityNameDiv.textContent = city.CityName;
+
+                        // Font ve boyutu sırayla ayarla
+                        cityNameDiv.style.fontFamily = fonts[fontIndex % fonts.length];
+                        cityNameDiv.style.fontSize = fontSizes[index % fontSizes.length]; // Sıradaki font boyutunu uygula
+
+                        // Her 5 şehirde bir font indeksini artır
+                        if ((index + 1) %8 === 0) {
+                            fontIndex++;
+                        }
+                        cityNameDiv.onclick = function() {
+                    selectedCity = city.CityName;
+                    showCityClock(selectedCity, city.CurrentTime);
+                    document.getElementById('selectedCityClock').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                };
+                        otherCityNames.appendChild(cityNameDiv);
+
+                        // Her 5 şehirde bir yeni satıra geç
+                        if ((index + 1) % 7 === 0) {
+                            otherCityNames.appendChild(document.createElement('br'));
+                        }
+                    });
+
+                    if (selectedCity) {
+                        const selectedCityData = data.find(city => city.CityName === selectedCity);
+                        if (selectedCityData) {
+                            showCityClock(selectedCity, selectedCityData.CurrentTime);
+                        }
+                    }
+                })
+                .catch(error => console.error('Error fetching city clocks:', error));
+        }
+
+        function showCityClock(cityName, currentTime) {
+            const selectedCityClock = document.getElementById('selectedCityClock');
+            selectedCityClock.style.display = 'block'; // Saati göstermek için display özelliğini 'block' yap
+            selectedCityClock.textContent = `${cityName}: ${formatTime(currentTime)}`;
+        }
+
+        fetchAndUpdateClocks();
+        setInterval(fetchAndUpdateClocks, 1000);
+
+        function formatTime(time) {
+            const timeParts = time.split('T')[1].split('.')[0].split(':');
+            return `${timeParts[0]}.${timeParts[1]}.${timeParts[2]}`;
+        }
+    </script>
+</body>
+</html>

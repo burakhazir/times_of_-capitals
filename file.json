@@ -1,0 +1,244 @@
+{
+  "Index": [
+    {
+      "name": "NewYorkCity",
+      "country": "ABD",
+      "time_zone": -240,
+      "continental": "Kuzey Amerika"
+    },
+    {
+      "name": "Tokyo",
+      "country": "Japonya",
+      "time_zone": 540,
+      "continental": "Asya"
+    },
+    {
+      "name": "Londra",
+      "country": "İngiltere",
+      "time_zone": 60,
+      "continental": "Avrupa"
+    },
+    {
+      "name": "CapeTown",
+      "country": "Güney Afrika",
+      "time_zone": 120,
+      "continental": "Afrika"
+    },
+    {
+      "name": "RioDeJaneiro",
+      "country": "Brezilya",
+      "time_zone": -180,
+      "continental": "Güney Amerika"
+    },
+    {
+      "name": "Sydney",
+      "country": "Avustralya",
+      "time_zone": 600,
+      "continental": "Okyanusya"
+    },
+    {
+      "name": "Paris",
+      "country": "Fransa",
+      "time_zone": 60,
+      "continental": "Avrupa"
+    },
+    {
+      "name": "Moskova",
+      "country": "Rusya",
+      "time_zone": 180,
+      "continental": "Avrupa"
+    },
+    {
+      "name": "Dubai",
+      "country": "Birleşik Arap Emirlikleri",
+      "time_zone": 240,
+      "continental": "Asya"
+    },
+    {
+      "name": "Singapur",
+      "country": "Singapur",
+      "time_zone": 480,
+      "continental": "Asya"
+    },
+    {
+      "name": "İstanbul",
+      "country": "Türkiye",
+      "time_zone": 180,
+      "continental": "Avrupa"
+    },
+    {
+      "name": "Toronto",
+      "country": "Kanada",
+      "time_zone": -240,
+      "continental": "Kuzey Amerika"
+    },
+    {
+      "name": "MexicoCity",
+      "country": "Meksika",
+      "time_zone": -300,
+      "continental": "Kuzey Amerika"
+    },
+    {
+      "name": "BuenosAires",
+      "country": "Arjantin",
+      "time_zone": -180,
+      "continental": "Güney Amerika"
+    },
+    {
+      "name": "Bangkok",
+      "country": "Tayland",
+      "time_zone": 420,
+      "continental": "Asya"
+    },
+    {
+      "name": "Kahire",
+      "country": "Mısır",
+      "time_zone": 120,
+      "continental": "Afrika"
+    },
+    {
+      "name": "Roma",
+      "country": "İtalya",
+      "time_zone": 120,
+      "continental": "Avrupa"
+    },
+    {
+      "name": "LosAngeles",
+      "country": "ABD",
+      "time_zone": -420,
+      "continental": "Kuzey Amerika"
+    },
+    {
+      "name": "Mumbai",
+      "country": "Hindistan",
+      "time_zone": 330,
+      "continental": "Asya"
+    },
+    {
+      "name": "Berlin",
+      "country": "Almanya",
+      "time_zone": 120,
+      "continental": "Avrupa"
+    },
+    {
+      "name": "Pekin",
+      "country": "Çin",
+      "time_zone": 480,
+      "continental": "Asya"
+    },
+    {
+      "name": "Johannesburg",
+      "country": "Güney Afrika",
+      "time_zone": 120,
+      "continental": "Afrika"
+    },
+    {
+      "name": "Vancouver",
+      "country": "Kanada",
+      "time_zone": -420,
+      "continental": "Kuzey Amerika"
+    },
+    {
+      "name": "Seul",
+      "country": "Güney Kore",
+      "time_zone": 540,
+      "continental": "Asya"
+    },
+    {
+      "name": "Lima",
+      "country": "Peru",
+      "time_zone": -300,
+      "continental": "Güney Amerika"
+    },
+    {
+      "name": "Melbourne",
+      "country": "Avustralya",
+      "time_zone": 600,
+      "continental": "Okyanusya"
+    },
+    {
+      "name": "Lagos",
+      "country": "Nijerya",
+      "time_zone": 60,
+      "continental": "Afrika"
+    },
+    {
+      "name": "Auckland",
+      "country": "Yeni Zelanda",
+      "time_zone": 720,
+      "continental": "Okyanusya"
+    },
+    {
+      "name": "Chicago",
+      "country": "ABD",
+      "time_zone": -300,
+      "continental": "Kuzey Amerika"
+    },
+    {
+      "name": "StPetersburg",
+      "country": "Rusya",
+      "time_zone": 180,
+      "continental": "Avrupa"
+    },
+    {
+      "name": "Ankara",
+      "country": "Türkiye",
+      "time_zone": 180,
+      "continental": "Avrupa"
+    },
+    {
+      "name": "WashingtonDC",
+      "country": "ABD",
+      "time_zone": -240,
+      "continental": "Kuzey Amerika"
+    },
+    {
+      "name": "Delhi",
+      "country": "Hindistan",
+      "time_zone": 330,
+      "continental": "Asya"
+    },
+    {
+      "name": "Ottawa",
+      "country": "Kanada",
+      "time_zone": -240,
+      "continental": "Kuzey Amerika"
+    },
+    {
+      "name": "Brasilia",
+      "country": "Brezilya",
+      "time_zone": -180,
+      "continental": "Güney Amerika"
+    },
+    {
+      "name": "Canberra",
+      "country": "Avustralya",
+      "time_zone": 600,
+      "continental": "Okyanusya"
+    },
+    {
+      "name": "BuenosAires",
+      "country": "Arjantin",
+      "time_zone": -180,
+      "continental": "Güney Amerika"
+    },
+    {
+      "name": "MexicoCity",
+      "country": "Meksika",
+      "time_zone": -300,
+      "continental": "Kuzey Amerika"
+    },
+    {
+      "name": "Madrid",
+      "country": "İspanya",
+      "time_zone": 120,
+      "continental": "Avrupa"
+    },
+    {
+      "name": "Roma",
+      "country": "İtalya",
+      "time_zone": 120,
+      "continental": "Avrupa"
+    }
+  ]
+}
